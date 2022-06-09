@@ -1,0 +1,3 @@
+public static List<Account> accountsByState(String stateAbbr) {
+    return [SELECT Id, BillingState FROM Account WHERE BillingState=:stateAbbr];
+} 
