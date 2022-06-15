@@ -1,0 +1,20 @@
+/* Understanding Execution Context
+ * Apex Trigger that fires before records are inserted, makes sure shipping state and billing state are the same 
+ * 
+*/
+
+public class AccountTriggerHandler {
+    //Bulkify account action to avoid dml errors
+    public static void CreateAccounts(List<Account> accounts){
+        for (Account acc : accounts){
+            //check if shipping state is different than billing state
+            if(acc.ShippingState != acc.BillingState){
+                //make billing state = shipping state
+                acc.ShippingState = acc.BillingState;
+                
+            }
+            
+        }
+    }
+
+}
