@@ -1,0 +1,8 @@
+trigger AccountTrigger on Account (before insert) {
+    
+    //Fire trigger before the account is inserted
+    if(Trigger.isInsert && Trigger.isBefore){
+        AccountTriggerHandler.CreateAccounts(Trigger.new);
+    }
+
+}
